@@ -85,5 +85,6 @@ TODO
 
 * [ ] add unit tests
 * [ ] add docker support
+* [ ] add ELB support
 * [ ] limit the search to only 1 namespace (for speed)
 * [ ] generate a new spec when ids are missing
