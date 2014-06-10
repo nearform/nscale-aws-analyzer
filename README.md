@@ -1,7 +1,7 @@
 nfd-aws-analyzer
 ================
 
-Analyze your AWS deployment!
+Analyze your AWS deployment done by NFD.
 
 ```bash
 npm install nfd-aws-analyzer -g
@@ -80,12 +80,32 @@ analyze(function(err, status) {
 })
 ```
 
+Naming System
+-------------
+
+### AWS
+
+Each AMI and instance _must_ be tagged with:
+* `nfd-id`: the id on NFD
+* `nfd-namespace`: the namespace on NFD
+
+Non-tagged AMI will be added with `notManaged: true` in their `specific`
+property.
+
+### Docker
+
+Each container _must_ have the name in this pattern:
+`nfd-<namespace>-<id>`.
+
+Each image _must_ be tagged with this pattern:
+`nfd:<namespace>-<id>`.
+
 TODO
 ----
 
 * [x] Link to the container definition inside the container
 * [x] add unit tests
-* [ ] add docker support
+* [x] add docker support
 * [ ] add ELB support
 * [ ] limit the search to only 1 namespace (for speed)
 * [ ] generate a new spec when ids are missing
