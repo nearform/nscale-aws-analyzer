@@ -1,0 +1,240 @@
+{
+  "Reservations": [
+    {
+      "Groups": [
+        {
+          "GroupId": "sg-8e68c7e4",
+          "GroupName": "launch-wizard-1"
+        }
+      ],
+      "Instances": [
+        {
+          "ProductCodes": [],
+          "BlockDeviceMappings": [
+            {
+              "DeviceName": "/dev/sda1",
+              "Ebs": {
+                "VolumeId": "vol-973ff5d2",
+                "Status": "attached",
+                "AttachTime": "2014-06-09T15:13:42.000Z",
+                "DeleteOnTermination": true
+              }
+            }
+          ],
+          "Tags": [
+            {
+              "Key": "Name",
+              "Value": "mcollina-test"
+            },
+            {
+              "Key": "nfd-id",
+              "Value": "instance1"
+            },
+            {
+              "Key": "nfd-namespace",
+              "Value": "mcollina"
+            }
+          ],
+          "SecurityGroups": [
+            {
+              "GroupId": "sg-8e68c7e4",
+              "GroupName": "launch-wizard-1"
+            }
+          ],
+          "NetworkInterfaces": [],
+          "InstanceId": "i-f2bbc5a1",
+          "ImageId": "ami-fb8e9292",
+          "State": {
+            "Code": 16,
+            "Name": "running"
+          },
+          "PrivateDnsName": "ip-10-185-235-8.ec2.internal",
+          "PublicDnsName": "ec2-54-198-3-251.compute-1.amazonaws.com",
+          "StateTransitionReason": "",
+          "KeyName": "mcollina",
+          "AmiLaunchIndex": 0,
+          "InstanceType": "t1.micro",
+          "LaunchTime": "2014-06-09T15:13:38.000Z",
+          "Placement": {
+            "AvailabilityZone": "us-east-1a",
+            "GroupName": "",
+            "Tenancy": "default"
+          },
+          "KernelId": "aki-919dcaf8",
+          "Monitoring": {
+            "State": "disabled"
+          },
+          "PrivateIpAddress": "10.185.235.8",
+          "PublicIpAddress": "54.198.3.251",
+          "Architecture": "x86_64",
+          "RootDeviceType": "ebs",
+          "RootDeviceName": "/dev/sda1",
+          "VirtualizationType": "paravirtual",
+          "ClientToken": "pCucS1402326818455",
+          "Hypervisor": "xen",
+          "EbsOptimized": false
+        }
+      ],
+      "ReservationId": "r-2247fa5c",
+      "OwnerId": "711655675495"
+    },
+    {
+      "Groups": [
+        {
+          "GroupId": "sg-bc65cad6",
+          "GroupName": "launch-wizard-2"
+        }
+      ],
+      "Instances": [
+        {
+          "ProductCodes": [],
+          "BlockDeviceMappings": [
+            {
+              "DeviceName": "/dev/sda1",
+              "Ebs": {
+                "VolumeId": "vol-5735ff12",
+                "Status": "attached",
+                "AttachTime": "2014-06-09T15:38:35.000Z",
+                "DeleteOnTermination": true
+              }
+            }
+          ],
+          "Tags": [
+            {
+              "Key": "Name",
+              "Value": "mcollina-test2"
+            },
+            {
+              "Key": "nfd-id",
+              "Value": "instance2"
+            },
+            {
+              "Key": "nfd-namespace",
+              "Value": "mcollina"
+            }
+          ],
+          "SecurityGroups": [
+            {
+              "GroupId": "sg-bc65cad6",
+              "GroupName": "launch-wizard-2"
+            }
+          ],
+          "NetworkInterfaces": [],
+          "InstanceId": "i-cea2dc9d",
+          "ImageId": "ami-fb8e9292",
+          "State": {
+            "Code": 16,
+            "Name": "running"
+          },
+          "PrivateDnsName": "ip-10-155-178-230.ec2.internal",
+          "PublicDnsName": "ec2-184-73-96-113.compute-1.amazonaws.com",
+          "StateTransitionReason": "",
+          "KeyName": "mcollina",
+          "AmiLaunchIndex": 0,
+          "InstanceType": "t1.micro",
+          "LaunchTime": "2014-06-09T15:38:31.000Z",
+          "Placement": {
+            "AvailabilityZone": "us-east-1a",
+            "GroupName": "",
+            "Tenancy": "default"
+          },
+          "KernelId": "aki-919dcaf8",
+          "Monitoring": {
+            "State": "disabled"
+          },
+          "PrivateIpAddress": "10.155.178.230",
+          "PublicIpAddress": "184.73.96.113",
+          "Architecture": "x86_64",
+          "RootDeviceType": "ebs",
+          "RootDeviceName": "/dev/sda1",
+          "VirtualizationType": "paravirtual",
+          "ClientToken": "IddfQ1402328311413",
+          "Hypervisor": "xen",
+          "EbsOptimized": false
+        }
+      ],
+      "ReservationId": "r-7438850a",
+      "OwnerId": "711655675495"
+    },
+    {
+      "Groups": [
+        {
+          "GroupId": "sg-952d2bfe",
+          "GroupName": "SE-Security"
+        }
+      ],
+      "Instances": [
+        {
+          "ProductCodes": [],
+          "BlockDeviceMappings": [
+            {
+              "DeviceName": "/dev/sda1",
+              "Ebs": {
+                "VolumeId": "vol-770bd501",
+                "Status": "attached",
+                "AttachTime": "2014-01-28T15:35:41.000Z",
+                "DeleteOnTermination": true
+              }
+            },
+            {
+              "DeviceName": "/dev/sdf",
+              "Ebs": {
+                "VolumeId": "vol-010bd577",
+                "Status": "attached",
+                "AttachTime": "2014-01-28T15:39:06.000Z",
+                "DeleteOnTermination": false
+              }
+            }
+          ],
+          "Tags": [
+            {
+              "Key": "Name",
+              "Value": "solid-earth-data"
+            }
+          ],
+          "SecurityGroups": [
+            {
+              "GroupId": "sg-952d2bfe",
+              "GroupName": "SE-Security"
+            }
+          ],
+          "NetworkInterfaces": [],
+          "InstanceId": "i-509f107e",
+          "ImageId": "ami-a73264ce",
+          "State": {
+            "Code": 16,
+            "Name": "running"
+          },
+          "PrivateDnsName": "ip-10-139-41-74.ec2.internal",
+          "PublicDnsName": "ec2-54-211-151-125.compute-1.amazonaws.com",
+          "StateTransitionReason": "",
+          "KeyName": "cristian-ianto",
+          "AmiLaunchIndex": 0,
+          "InstanceType": "t1.micro",
+          "LaunchTime": "2014-01-28T15:35:38.000Z",
+          "Placement": {
+            "AvailabilityZone": "us-east-1d",
+            "GroupName": "",
+            "Tenancy": "default"
+          },
+          "KernelId": "aki-88aa75e1",
+          "Monitoring": {
+            "State": "disabled"
+          },
+          "PrivateIpAddress": "10.139.41.74",
+          "PublicIpAddress": "54.211.151.125",
+          "Architecture": "x86_64",
+          "RootDeviceType": "ebs",
+          "RootDeviceName": "/dev/sda1",
+          "VirtualizationType": "paravirtual",
+          "ClientToken": "dbNZO1390923338178",
+          "Hypervisor": "xen",
+          "EbsOptimized": false
+        }
+      ],
+      "ReservationId": "r-c863c0e6",
+      "OwnerId": "711655675495"
+    }
+  ],
+  "requestId": "20682c3b-ac1e-44f0-aecf-f1cdfdca8e50"
+}

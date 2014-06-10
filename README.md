@@ -84,7 +84,7 @@ TODO
 ----
 
 * [x] Link to the container definition inside the container
-* [ ] add unit tests
+* [x] add unit tests
 * [ ] add docker support
 * [ ] add ELB support
 * [ ] limit the search to only 1 namespace (for speed)
