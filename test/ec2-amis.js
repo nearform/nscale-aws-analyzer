@@ -70,7 +70,7 @@ describe('ec2 instances analysis', function() {
       }
     }
 
-    fetchImages(result, function(err) {
+    fetchImages({}, result, function(err) {
       expect(err).to.be.falsy()
       delete result.mcollina.id
       delete result.mcollina.name
@@ -135,7 +135,7 @@ describe('ec2 instances analysis', function() {
       }
     }
 
-    fetchImages(result, function(err) {
+    fetchImages({}, result, function(err) {
       expect(err).to.be.falsy()
       delete result.mcollina.id
       delete result.mcollina.name

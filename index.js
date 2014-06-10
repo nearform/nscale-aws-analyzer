@@ -1,29 +1,28 @@
 var async = require('async')
   , fetchInstances = require('./lib/ec2-instances')
   , fetchImages = require('./lib/ec2-amis')
+  , fetchContainers = require('./lib/docker-containers')
+  , debug = require('debug')('aws-analyzer:index')
 
-function analyze(cb) {
+function analyze(config, cb) {
   var result = {}
 
-  async.series([
+  debug('started')
 
-    function(cb) {
-      fetchInstances(result, function(err) {
-        if (err) { return cb(err) }
+  async.eachSeries([
+      fetchInstances
+    , fetchImages
+    , fetchContainers
+  ], function(func, cb) {
+    debug('calling', func.name)
+    func(config, result, function(err) {
+      if (err) { return cb(err) }
 
-        cb(null)
-      })
-    },
+      debug('done', func.name)
 
-    function(cb) {
-      fetchImages(result, function(err) {
-        if (err) { return cb(err) }
-
-        cb(null)
-      })
-    }
-
-  ], function(err) {
+      cb(null)
+    })
+  }, function(err) {
     cb(err, result)
   })
 }

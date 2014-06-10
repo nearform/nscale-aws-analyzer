@@ -13,16 +13,17 @@ if (!configFile) {
 
 try {
   AWS.config.loadFromPath(configFile)
+  config = JSON.parse(fs.readFileSync(configFile))
 } catch(err) {
   console.log(err)
   console.log('unable to read', configFile)
   process.exit(-1)
 }
 
-analyze(function(err, status) {
+analyze(config, function(err, status) {
   if (err) {
     console.log(err)
-    process.exit(1)
+    return
   }
 
   console.log(JSON.stringify(status, null, 2))

@@ -54,7 +54,7 @@ describe('ec2 instances analysis', function() {
 
     var result = {}
 
-    fetchInstances(result, function(err) {
+    fetchInstances({}, result, function(err) {
       expect(err).to.be.falsy()
       delete result.mcollina.id
       delete result.mcollina.name
@@ -65,7 +65,7 @@ describe('ec2 instances analysis', function() {
   it('must add an id to the namespace', function() {
     var result = {}
 
-    fetchInstances(result, function(err) {
+    fetchInstances({}, result, function(err) {
       expect(err).to.be.falsy()
       expect(result.mcollina.id).to.be.a.string()
       expect(result.mcollina.id).to.have.length(36)
