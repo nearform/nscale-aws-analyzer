@@ -83,6 +83,7 @@ analyze(function(err, status) {
 TODO
 ----
 
+* [x] Link to the container definition inside the container
 * [ ] add unit tests
 * [ ] add docker support
 * [ ] add ELB support
