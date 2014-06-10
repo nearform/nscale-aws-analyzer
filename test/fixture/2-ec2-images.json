@@ -1,0 +1,49 @@
+{
+  "Images": [
+    {
+      "ProductCodes": [],
+      "BlockDeviceMappings": [
+        {
+          "DeviceName": "/dev/sda1",
+          "Ebs": {
+            "SnapshotId": "snap-b047276d",
+            "VolumeSize": 8,
+            "DeleteOnTermination": true,
+            "VolumeType": "standard",
+            "Encrypted": false
+          }
+        }
+      ],
+      "Tags": [
+        {
+          "Key": "Name",
+          "Value": "mcollina-test-ami"
+        },
+        {
+          "Key": "nfd-id",
+          "Value": "ami1"
+        },
+        {
+          "Key": "nfd-namespace",
+          "Value": "mcollina"
+        }
+      ],
+      "ImageId": "ami-fb8e9292",
+      "ImageLocation": "amazon/amzn-ami-pv-2014.03.1.x86_64-ebs",
+      "State": "available",
+      "OwnerId": "137112412989",
+      "Public": true,
+      "Architecture": "x86_64",
+      "ImageType": "machine",
+      "KernelId": "aki-919dcaf8",
+      "ImageOwnerAlias": "amazon",
+      "Name": "amzn-ami-pv-2014.03.1.x86_64-ebs",
+      "Description": "Amazon Linux AMI x86_64 PV EBS",
+      "RootDeviceType": "ebs",
+      "RootDeviceName": "/dev/sda1",
+      "VirtualizationType": "paravirtual",
+      "Hypervisor": "xen"
+    }
+  ],
+  "requestId": "f4dceda8-b60f-47f1-91f2-39ea9fb65699"
+}

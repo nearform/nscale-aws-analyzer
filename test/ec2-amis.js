@@ -7,7 +7,11 @@ var expect          = require('must')
 describe('ec2 instances analysis', function() {
   var constructorStub;
 
-  beforeEach(function() {
+  afterEach(function() {
+    constructorStub.restore()
+  })
+
+  it('must fetch a non-managed ami', function() {
     constructorStub = sinon.stub(AWS, 'EC2')
 
     constructorStub.returns({
@@ -15,13 +19,7 @@ describe('ec2 instances analysis', function() {
         cb(null, JSON.parse(fs.readFileSync(__dirname + '/fixture/1-ec2-images.json')))
       }
     })
-  })
 
-  afterEach(function() {
-    constructorStub.restore()
-  })
-
-  it('must fetch a non-managed ami', function() {
     var expected = {
       "mcollina": {
         "namespace": "mcollina",
@@ -39,6 +37,71 @@ describe('ec2 instances analysis', function() {
             "instance1": {
               "id": "instance1",
               "containerDefinitionId": "ami-fb8e9292",
+              "specific": {
+                "imageId": "ami-fb8e9292",
+                "instanceId": "i-f2bbc5a1",
+                "publicIpAddress": "54.198.3.251",
+                "privateIpAddress": "10.185.235.8"
+              }
+            }
+          }
+        }
+      }
+    }
+
+    var result = {
+      "mcollina": {
+        "namespace": "mcollina",
+        "containerDefinitions": [
+        ],
+        "topology": {
+          "containers": {
+            "instance1": {
+              "id": "instance1",
+              "specific": {
+                "imageId": "ami-fb8e9292",
+                "instanceId": "i-f2bbc5a1",
+                "publicIpAddress": "54.198.3.251",
+                "privateIpAddress": "10.185.235.8"
+              }
+            }
+          }
+        }
+      }
+    }
+
+    fetchImages(result, function(err) {
+      expect(err).to.be.falsy()
+      delete result.mcollina.id
+      delete result.mcollina.name
+      expect(result).to.eql(expected)
+    })
+  })
+
+  it('must fetch a managed ami', function() {
+    constructorStub = sinon.stub(AWS, 'EC2')
+
+    constructorStub.returns({
+      describeImages: function(params, cb) {
+        cb(null, JSON.parse(fs.readFileSync(__dirname + '/fixture/2-ec2-images.json')))
+      }
+    })
+
+    var expected = {
+      "mcollina": {
+        "namespace": "mcollina",
+        "containerDefinitions": [
+          {
+            "id": "ami1",
+            "type": "ami",
+            "specific": {}
+          }
+        ],
+        "topology": {
+          "containers": {
+            "instance1": {
+              "id": "instance1",
+              "containerDefinitionId": "ami1",
               "specific": {
                 "imageId": "ami-fb8e9292",
                 "instanceId": "i-f2bbc5a1",
