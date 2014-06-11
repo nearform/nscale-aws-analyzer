@@ -1,6 +1,6 @@
 {
   "name": "nfd-aws-analyzer",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "Analyze your AWS deployment! ",
   "private": true,
   "main": "index.js",
