@@ -43,6 +43,7 @@ describe('docker analysis', function() {
             "instance1": {
               "id": "instance1",
               "containerDefinitionId": "ami-fb8e9292",
+              "contains": ["dfb12711-f0b6-11e3-9836-19909b9493cf"],
               "specific": {
                 "imageId": "ami-fb8e9292",
                 "instanceId": "i-f2bbc5a1",
@@ -52,6 +53,7 @@ describe('docker analysis', function() {
             },
             "dfb12711-f0b6-11e3-9836-19909b9493cf": {
               "id": "dfb12711-f0b6-11e3-9836-19909b9493cf",
+              "containedBy": "instance1",
               "containerDefinitionId": "dfb12710-f0b6-11e3-9836-19909b9493cf",
               "specific": {
                 "imageId": "nfd:mcollina-dfb12710-f0b6-11e3-9836-19909b9493cf",

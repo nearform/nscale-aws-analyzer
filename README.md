@@ -107,7 +107,7 @@ TODO
 * [x] add unit tests
 * [x] add docker support
 * [x] add ELB support
-* [ ] add contains and containedBy relations
+* [x] add contains and containedBy relations for docker containers
 * [ ] allow parallelization of tasks.
 * [ ] limit the search to only 1 namespace (for speed)
 * [ ] generate a new spec when ids are missing
