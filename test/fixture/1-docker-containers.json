@@ -1,0 +1,18 @@
+[
+  {
+    "Command": "node /src/index 3000 bash",
+    "Created": 1402416414,
+    "Id": "84a0a92a455d618ba53b962c6e133b616cd898cd2561f3d3c232a3860c2f4e3e",
+    "Image": "nfd:mcollina-dfb12710-f0b6-11e3-9836-19909b9493cf",
+    "Names": [
+      "/nfd-mcollina-dfb12711-f0b6-11e3-9836-19909b9493cf"
+    ],
+    "Ports": [
+      {
+        "PrivatePort": 3000,
+        "Type": "tcp"
+      }
+    ],
+    "Status": "Up 17 hours"
+  }
+]
