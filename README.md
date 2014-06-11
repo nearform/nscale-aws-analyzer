@@ -108,6 +108,8 @@ TODO
 * [x] add docker support
 * [x] add ELB support
 * [x] add contains and containedBy relations for docker containers
+* [ ] add type in containerDefinitions
+* [ ] add ELB containerDefinition
 * [ ] allow parallelization of tasks.
 * [ ] limit the search to only 1 namespace (for speed)
 * [ ] generate a new spec when ids are missing
