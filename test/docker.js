@@ -26,13 +26,14 @@ describe('docker analysis', function() {
         "containerDefinitions": [
           {
             "id": "ami-fb8e9292",
-            "type": "ami",
+            "type": "aws-ami",
             "specific": {
               "notManaged": true
             }
           },
           {
             "id": "dfb12710-f0b6-11e3-9836-19909b9493cf",
+            "type": "docker",
             "specific": {
               "imageId": "8cf62d312f549778a1de4f016aced846a72e1db13bced13b4722336f092f8d33"
             }
@@ -71,7 +72,7 @@ describe('docker analysis', function() {
         "containerDefinitions": [
           {
             "id": "ami-fb8e9292",
-            "type": "ami",
+            "type": "aws-ami",
             "specific": {
               "notManaged": true
             }

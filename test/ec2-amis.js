@@ -26,7 +26,7 @@ describe('ec2 instances analysis', function() {
         "containerDefinitions": [
           {
             "id": "ami-fb8e9292",
-            "type": "ami",
+            "type": "aws-ami",
             "specific": {
               "notManaged": true
             }
@@ -93,7 +93,7 @@ describe('ec2 instances analysis', function() {
         "containerDefinitions": [
           {
             "id": "ami1",
-            "type": "ami",
+            "type": "aws-ami",
             "specific": {}
           }
         ],
