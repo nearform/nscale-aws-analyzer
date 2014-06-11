@@ -2,6 +2,7 @@ var async = require('async')
   , fetchInstances = require('./lib/ec2-instances')
   , fetchImages = require('./lib/ec2-amis')
   , fetchContainers = require('./lib/docker-containers')
+  , fetchLoadBalancers = require('./lib/elb')
   , debug = require('debug')('aws-analyzer:index')
 
 function analyze(config, cb) {
@@ -13,6 +14,7 @@ function analyze(config, cb) {
       fetchInstances
     , fetchImages
     , fetchContainers
+    , fetchLoadBalancers
   ], function(func, cb) {
     debug('calling', func.name)
     func(config, result, function(err) {

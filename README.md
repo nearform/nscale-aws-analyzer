@@ -106,6 +106,8 @@ TODO
 * [x] Link to the container definition inside the container
 * [x] add unit tests
 * [x] add docker support
-* [ ] add ELB support
+* [x] add ELB support
+* [ ] add contains and containedBy relations
+* [ ] allow parallelization of tasks.
 * [ ] limit the search to only 1 namespace (for speed)
 * [ ] generate a new spec when ids are missing
