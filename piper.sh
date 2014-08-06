@@ -6,6 +6,11 @@ then
   exit 1
 fi
 
+## TO TEST IT -- execute in separate shells
+## rm hello ; nc -k -l -U hello 1>&0
+## ./piper hello 12345
+## nc localhost 12345
+
 PIPE_IN="/tmp/piper-pipe-in"
 PIPE_OUT="/tmp/piper-pipe-out"
 
