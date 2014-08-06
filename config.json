@@ -1,0 +1,8 @@
+{
+  "accessKeyId": "AKIAJ2PCJ2RYKEOXTJNA",
+  "secretAccessKey": "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",
+  "region": "eu-west-1",
+  "user": "ubuntu",
+  "identityFile": "/home/ubuntu/nfd.pem",
+  "dockerRemote": "8000"
+}
