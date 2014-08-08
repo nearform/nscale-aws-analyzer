@@ -17,17 +17,44 @@
 var async = require('async');
 var fetchInstances = require('./lib/ec2-instances');
 var fetchImages = require('./lib/ec2-amis');
-var fetchContainers = require('./lib/docker-containers');
+var docker = require('./lib/docker-containers');
 var fetchLoadBalancers = require('./lib/elb');
 
+
+/**
+ * run an analysis on an AWS account
+ *
+ * config:
+ *
+ * Required:
+ *  "accessKeyId":        AWS access key
+ *  "secretAccessKey":    AWS secret access key
+ *  "region":             AWS region
+ *  "user":               common user name for login to aws systems
+ *  "identityFile":       AWS pem file
+ *  "name":               the system name to use
+ *  "namespace":          the system namespace to use
+ *  "systemId":           the system id to insert into the generated system definition file
+ *
+ * Optional:
+ *  "instanceFilter":     the tag key to filter instances on (typically nfd-id)
+ *
+ *  ??"dockerRemote": "8000"
+ */
+
 function analyze(config, cb) {
-  var result = {};
+  var result = {'name': config.name,
+                'namespace': config.namespace, 
+                'id': config.systemId,
+                'containerDefinitions': [], 
+                'topology': { 'containers': {}}}; 
 
   async.eachSeries([
     fetchInstances,
     fetchImages,
-    fetchContainers
-//    fetchLoadBalancers
+    docker.fetchImages,
+    docker.fetchContainers,
+    fetchLoadBalancers
   ], function(func, cb) {
     func(config, result, function(err) {
       if (err) { return cb(err); }

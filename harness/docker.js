@@ -1,3 +1,10 @@
+
+/*
+ * defunct - replace with matching tests for new docker code
+ */
+
+
+
 var expect          = require('must')
   , fetchContainers = require('../lib/docker-containers')
   , helpers         = require('../lib/docker-helpers')
