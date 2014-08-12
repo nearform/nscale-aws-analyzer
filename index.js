@@ -52,13 +52,13 @@ function analyze(config, cb) {
                 'topology': { 'containers': {}}}; 
 
   AWS.config.update(config);
-  AWS.config.update({region: 'eu-west-1'});
+  AWS.config.update({region: config.region});
 
   async.eachSeries([
     fetchInstances,
     fetchImages,
-    docker.fetchImages,
-    docker.fetchContainers,
+//    docker.fetchImages,
+//    docker.fetchContainers,
     fetchLoadBalancers,
     postProcessing
   ], function(func, cb) {
