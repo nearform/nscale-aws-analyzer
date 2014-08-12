@@ -32,6 +32,7 @@ describe('ec2 instances analysis', function() {
           'instance1': {
             'id': 'instance1',
             'nativeId': 'i-f2bbc5a1',
+            'type': 'aws-instance',
             'contains': [],
             'specific': {
               'imageId': 'ami-fb8e9292',
@@ -43,6 +44,7 @@ describe('ec2 instances analysis', function() {
           'instance2': {
             'id': 'instance2',
             'nativeId': 'i-cea2dc9d',
+            'type': 'aws-instance',
             'contains': [],
             'specific': {
               'imageId': 'ami-fb8e9292',
@@ -59,7 +61,7 @@ describe('ec2 instances analysis', function() {
                   'containerDefinitions': [], 
                   'topology': { 'containers': {}}}; 
 
-    fetchInstances({'instanceFilter': 'nfd-id'}, result, function(err) {
+    fetchInstances(AWS, {'instanceFilter': 'nfd-id'}, result, function(err) {
       expect(err).to.be.falsy();
       delete result.id;
       delete result.name;

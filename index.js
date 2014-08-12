@@ -19,6 +19,9 @@ var fetchInstances = require('./lib/ec2-instances');
 var fetchImages = require('./lib/ec2-amis');
 var docker = require('./lib/docker-containers');
 var fetchLoadBalancers = require('./lib/elb');
+var postProcessing = require('./lib/postProcessing');
+var AWS = require('aws-sdk');
+
 
 
 /**
@@ -41,7 +44,6 @@ var fetchLoadBalancers = require('./lib/elb');
  *
  *  ??"dockerRemote": "8000"
  */
-
 function analyze(config, cb) {
   var result = {'name': config.name,
                 'namespace': config.namespace, 
@@ -49,14 +51,18 @@ function analyze(config, cb) {
                 'containerDefinitions': [], 
                 'topology': { 'containers': {}}}; 
 
+  AWS.config.update(config);
+  AWS.config.update({region: 'eu-west-1'});
+
   async.eachSeries([
     fetchInstances,
     fetchImages,
     docker.fetchImages,
     docker.fetchContainers,
-    fetchLoadBalancers
+    fetchLoadBalancers,
+    postProcessing
   ], function(func, cb) {
-    func(config, result, function(err) {
+    func(AWS, config, result, function(err) {
       if (err) { return cb(err); }
       cb(null);
     });
