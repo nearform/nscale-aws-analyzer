@@ -57,8 +57,8 @@ function analyze(config, cb) {
   async.eachSeries([
     fetchInstances,
     fetchImages,
-//    docker.fetchImages,
-//    docker.fetchContainers,
+    docker.fetchImages,
+    docker.fetchContainers,
     fetchLoadBalancers,
     postProcessing
   ], function(func, cb) {
