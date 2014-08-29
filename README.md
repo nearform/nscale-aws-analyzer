@@ -1,11 +1,13 @@
-nfd-aws-analyzer
+nscale-aws-analyzer
 ================
 
-Analyze your AWS deployment done by NFD.
+Analyze your AWS deployment done by
+[nscale](http://github.com/nearform/nscale).
+
 
 ```bash
-npm install nfd-aws-analyzer -g
-nfd-aws-analyzer ./config.js
+npm install nscale-aws-analyzer -g
+nscale-aws-analyzer ./config.js
 {
   "mcollina": {
     "name": "mcollina status on 2014-06-09T16:48:50.602Z",
