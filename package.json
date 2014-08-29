@@ -1,8 +1,7 @@
 {
-  "name": "nfd-aws-analyzer",
+  "name": "nscale-aws-analyzer",
   "version": "0.0.3",
-  "description": "Analyze your AWS deployment! ",
-  "private": true,
+  "description": "Analyze your AWS deployment!",
   "main": "index.js",
   "bin": {
     "nfd-aws-analyze": "analyze.js"
@@ -13,7 +12,7 @@
   "pre-commit": "test",
   "repository": {
     "type": "git",
-    "url": "git://github.com/nearform/nfd-aws-analyzer.git"
+    "url": "git://github.com/nearform/nscale-aws-analyzer.git"
   },
   "keywords": [
     "aws",
@@ -22,11 +21,11 @@
     "nfd"
   ],
   "author": "Matteo Collina <hello@matteocollina.com>",
-  "license": "private",
+  "license": "Artistic License 2.0",
   "bugs": {
-    "url": "https://github.com/nearform/nfd-aws-analyzer/issues"
+    "url": "https://github.com/nearform/nscale-aws-analyzer/issues"
   },
-  "homepage": "https://github.com/nearform/nfd-aws-analyzer",
+  "homepage": "https://github.com/nearform/nscale-aws-analyzer",
   "dependencies": {
     "async": "^0.9.0",
     "aws-sdk": "^2.0.0-rc.19",
