@@ -59,6 +59,7 @@ function analyze(config, cb) {
     fetchImages,
     docker.fetchImages,
     docker.fetchContainers,
+    docker.stripExtraneous,
     fetchLoadBalancers,
     postProcessing
   ], function(func, cb) {
