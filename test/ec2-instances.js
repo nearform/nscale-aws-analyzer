@@ -33,6 +33,7 @@ describe('ec2 instances analysis', function() {
             'id': 'instance1',
             'nativeId': 'i-f2bbc5a1',
             'type': 'aws-instance',
+            'name': 'i-f2bbc5a1',
             'contains': [],
             'specific': {
               'imageId': 'ami-fb8e9292',
@@ -45,6 +46,7 @@ describe('ec2 instances analysis', function() {
             'id': 'instance2',
             'nativeId': 'i-cea2dc9d',
             'type': 'aws-instance',
+            'name': 'i-cea2dc9d',
             'contains': [],
             'specific': {
               'imageId': 'ami-fb8e9292',

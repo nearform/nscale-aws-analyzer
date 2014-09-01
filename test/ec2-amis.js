@@ -28,6 +28,7 @@ describe('ec2 instances analysis', function() {
       'containerDefinitions': [
         {
           'id': 'ami-fb8e9292',
+          'name': 'ami-fb8e9292',
           'type': 'aws-ami',
           'nativeId': 'ami-fb8e9292',
           'specific': {}
@@ -93,6 +94,7 @@ describe('ec2 instances analysis', function() {
         {
           'id': 'ami1',
           'type': 'aws-ami',
+          'name': 'ami-fb8e9292',
           'nativeId': 'ami-fb8e9292',
           'specific': {}
         }

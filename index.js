@@ -44,7 +44,7 @@ var AWS = require('aws-sdk');
  *
  *  ??"dockerRemote": "8000"
  */
-function analyze(config, cb) {
+exports.analyze = function analyze(config, cb) {
   var result = {'name': config.name,
                 'namespace': config.namespace, 
                 'id': config.systemId,
@@ -68,7 +68,5 @@ function analyze(config, cb) {
       cb(null);
     });
   }, function(err) { cb(err, result); });
-}
-
-module.exports = analyze;
+};
 

@@ -4,7 +4,7 @@
   "description": "Analyze your AWS deployment!",
   "main": "index.js",
   "bin": {
-    "nfd-aws-analyze": "analyze.js"
+    "nscale-aws-analyze": "analyze.js"
   },
   "scripts": {
     "test": "mocha test"
