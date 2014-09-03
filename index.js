@@ -17,6 +17,7 @@
 var async = require('async');
 var fetchInstances = require('./lib/ec2-instances');
 var fetchImages = require('./lib/ec2-amis');
+var fetchSgs = require('./lib/ec2-sgs');
 var docker = require('./lib/docker-containers');
 var fetchLoadBalancers = require('./lib/elb');
 var postProcessing = require('./lib/postProcessing');
@@ -57,6 +58,7 @@ exports.analyze = function analyze(config, cb) {
   async.eachSeries([
     fetchInstances,
     fetchImages,
+    fetchSgs,
     docker.fetchImages,
     docker.fetchContainers,
     docker.stripExtraneous,

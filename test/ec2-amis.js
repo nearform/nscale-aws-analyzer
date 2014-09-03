@@ -92,7 +92,7 @@ describe('ec2 instances analysis', function() {
       'namespace': 'mcollina',
       'containerDefinitions': [
         {
-          'id': 'ami1',
+          'id': 'ami-fb8e9292',
           'type': 'aws-ami',
           'name': 'ami-fb8e9292',
           'nativeId': 'ami-fb8e9292',
@@ -103,7 +103,7 @@ describe('ec2 instances analysis', function() {
         'containers': {
           'instance1': {
             'id': 'instance1',
-            'containerDefinitionId': 'ami1',
+            'containerDefinitionId': 'ami-fb8e9292',
             'specific': {
               'imageId': 'ami-fb8e9292',
               'instanceId': 'i-f2bbc5a1',

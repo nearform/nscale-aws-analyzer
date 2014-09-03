@@ -1,0 +1,91 @@
+[31m  1 failing[0m
+
+[0m  1) ec2 instances analysis must fetch two containers:
+
+      [31mAssertionError: {"namespace":"mcollina","containerDefinitions":[],"topology":{"containers":{"i-f2bbc5a1":{"id":"i-f2bbc5a1","name":"i-f2bbc5a1","nativeId":"i-f2bbc5a1","contains":[],"type":"aws-instance","specific":{"imageId":"ami-fb8e9292","instanceId":"i-f2bbc5a1","publicIpAddress":"54.198.3.251","privateIpAddress":"10.185.235.8","securityGroups":[{"GroupId":"sg-8e68c7e4","GroupName":"launch-wizard-1"}],"tags":[{"Key":"Name","Value":"mcollina-test"},{"Key":"nfd-id","Value":"instance1"},{"Key":"nfd-namespace","Value":"mcollina"}]}},"i-cea2dc9d":{"id":"i-cea2dc9d","name":"i-cea2dc9d","nativeId":"i-cea2dc9d","contains":[],"type":"aws-instance","specific":{"imageId":"ami-fb8e9292","instanceId":"i-cea2dc9d","publicIpAddress":"184.73.96.113","privateIpAddress":"10.155.178.230","securityGroups":[{"GroupId":"sg-bc65cad6","GroupName":"launch-wizard-2"}],"tags":[{"Key":"Name","Value":"mcollina-test2"},{"Key":"nfd-id","Value":"instance2"},{"Key":"nfd-namespace","Value":"mcollina"}]}}}}} must be equivalent to {"namespace":"mcollina","containerDefinitions":[],"topology":{"containers":{"i-cea2dc9d":{"id":"i-cea2dc9d","name":"i-cea2dc9d","nativeId":"i-cea2dc9d","type":"aws-instance","contains":[],"specific":{"instanceId":"i-cea2dc9d","privateIpAddress":"10.155.178.230","publicIpAddress":"184.73.96.113","securityGroups":[{"GroupId":"sg-bc65cad6","GroupName":"launch-wizard-2"}],"tags":[{"Key":"Name","Value":"mcollina-test2"},{"Key":"nfd-id","Value":"instance2"},{"Key":"nfd-namespace","Value":"mcollina"}]}}},"instance2":{"id":"instance2","nativeId":"i-cea2dc9d","type":"aws-instance","name":"i-cea2dc9d","contains":[],"specific":{"instanceId":"i-cea2dc9d","publicIpAddress":"184.73.96.113","privateIpAddress":"10.155.178.230"}}}}[0m
+      [42m+ expected[0m [41m- actual[0m
+
+               "id": "i-cea2dc9d",
+               "name": "i-cea2dc9d",
+               "nativeId": "i-cea2dc9d",
+               "specific": {
+      [41m-          "imageId": "ami-fb8e9292",[0m
+                 "instanceId": "i-cea2dc9d",
+                 "privateIpAddress": "10.155.178.230",
+                 "publicIpAddress": "184.73.96.113",
+                 "securityGroups": [
+                   }
+                 ]
+               },
+               "type": "aws-instance"
+      [42m+      }[0m
+      [42m+    },[0m
+      [42m+    "instance2": {[0m
+      [42m+      "contains": [],[0m
+      [42m+      "id": "instance2",[0m
+      [42m+      "name": "i-cea2dc9d",[0m
+      [42m+      "nativeId": "i-cea2dc9d",[0m
+      [42m+      "specific": {[0m
+      [42m+        "instanceId": "i-cea2dc9d",[0m
+      [42m+        "privateIpAddress": "10.155.178.230",[0m
+      [42m+        "publicIpAddress": "184.73.96.113"[0m
+             },
+      [42m+      "type": "aws-instance"[0m
+      [41m-      "i-f2bbc5a1": {[0m
+      [41m-        "contains": [],[0m
+      [41m-        "id": "i-f2bbc5a1",[0m
+      [41m-        "name": "i-f2bbc5a1",[0m
+      [41m-        "nativeId": "i-f2bbc5a1",[0m
+      [41m-        "specific": {[0m
+      [41m-          "imageId": "ami-fb8e9292",[0m
+      [41m-          "instanceId": "i-f2bbc5a1",[0m
+      [41m-          "privateIpAddress": "10.185.235.8",[0m
+      [41m-          "publicIpAddress": "54.198.3.251",[0m
+      [41m-          "securityGroups": [[0m
+      [41m-            {[0m
+      [41m-              "GroupId": "sg-8e68c7e4",[0m
+      [41m-              "GroupName": "launch-wizard-1"[0m
+      [41m-            }[0m
+      [41m-          ],[0m
+      [41m-          "tags": [[0m
+      [41m-            {[0m
+      [41m-              "Key": "Name",[0m
+      [41m-              "Value": "mcollina-test"[0m
+      [41m-            },[0m
+      [41m-            {[0m
+      [41m-              "Key": "nfd-id",[0m
+      [41m-              "Value": "instance1"[0m
+      [41m-            },[0m
+      [41m-            {[0m
+      [41m-              "Key": "nfd-namespace",[0m
+      [41m-              "Value": "mcollina"[0m
+      [41m-            }[0m
+      [41m-          ][0m
+      [41m-        },[0m
+      [41m-        "type": "aws-instance"[0m
+      [41m-      }[0m
+           }
+         }
+       }
+      [0m[90m
+      at /home/ubuntu/nscale/nscale-aws-analyzer/test/ec2-instances.js:82:25
+      at /home/ubuntu/nscale/nscale-aws-analyzer/lib/ec2-instances.js:60:5
+      at Object.constructorStub.returns.describeInstances (/home/ubuntu/nscale/nscale-aws-analyzer/test/ec2-instances.js:17:9)
+      at fetchInstances (/home/ubuntu/nscale/nscale-aws-analyzer/lib/ec2-instances.js:30:7)
+      at Context.<anonymous> (/home/ubuntu/nscale/nscale-aws-analyzer/test/ec2-instances.js:78:5)
+      at callFn (/usr/local/lib/node_modules/mocha/lib/runnable.js:223:21)
+      at Test.Runnable.run (/usr/local/lib/node_modules/mocha/lib/runnable.js:216:7)
+      at Runner.runTest (/usr/local/lib/node_modules/mocha/lib/runner.js:373:10)
+      at /usr/local/lib/node_modules/mocha/lib/runner.js:451:12
+      at next (/usr/local/lib/node_modules/mocha/lib/runner.js:298:14)
+      at /usr/local/lib/node_modules/mocha/lib/runner.js:308:7
+      at next (/usr/local/lib/node_modules/mocha/lib/runner.js:246:23)
+      at /usr/local/lib/node_modules/mocha/lib/runner.js:270:7
+      at done (/usr/local/lib/node_modules/mocha/lib/runnable.js:185:5)
+      at callFn (/usr/local/lib/node_modules/mocha/lib/runnable.js:228:7)
+      at Hook.Runnable.run (/usr/local/lib/node_modules/mocha/lib/runnable.js:216:7)
+      at next (/usr/local/lib/node_modules/mocha/lib/runner.js:258:10)
+      at Object._onImmediate (/usr/local/lib/node_modules/mocha/lib/runner.js:275:5)
+      at processImmediate [as _immediateCallback] (timers.js:345:15)
+[0m
+
