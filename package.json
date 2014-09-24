@@ -1,6 +1,6 @@
 {
   "name": "nscale-aws-analyzer",
-  "version": "0.1.1",
+  "version": "0.2.0",
   "description": "Analyze your AWS deployment!",
   "main": "index.js",
   "bin": {
@@ -21,6 +21,9 @@
     "nfd"
   ],
   "author": "Matteo Collina <hello@matteocollina.com>",
+  "contributors": [
+    "Peter Elger <elger.peter@gmail.com> (http://peterelger.com/)"
+  ],
   "license": "Artistic License 2.0",
   "bugs": {
     "url": "https://github.com/nearform/nscale-aws-analyzer/issues"
