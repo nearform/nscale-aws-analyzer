@@ -18,7 +18,9 @@ var async = require('async');
 var fetchInstances = require('./lib/ec2-instances');
 var fetchImages = require('./lib/ec2-amis');
 var fetchSgs = require('./lib/ec2-sgs');
-var docker = require('./lib/docker-containers');
+var dockerAnalyzer = require('nscale-docker-analyzer');
+var dockerApi = require('./lib/dockerApi');
+var stripExtraneous = require('./lib/stripExtraneous');
 var fetchLoadBalancers = require('./lib/elb');
 var postProcessing = require('./lib/postProcessing');
 var AWS = require('aws-sdk');
@@ -57,13 +59,15 @@ exports.analyze = function analyze(config, system, cb) {
   AWS.config.update(config);
   AWS.config.update({region: config.region});
 
+  var docker = dockerAnalyzer(dockerApi);
+
   async.eachSeries([
     fetchInstances,
     fetchImages,
     fetchSgs,
     docker.fetchImages,
     docker.fetchContainers,
-    docker.stripExtraneous,
+    stripExtraneous,
     fetchLoadBalancers,
     postProcessing
   ], function(func, cb) {
