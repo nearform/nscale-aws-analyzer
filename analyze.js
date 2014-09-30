@@ -32,7 +32,7 @@ AWS.config.loadFromPath(configFile);
 config = JSON.parse(fs.readFileSync(configFile, 'utf8'));
 
 console.log('Analyzing...');
-analyze.analyze(config, function(err, status) {
+analyze.analyze(config, null, function(err, status) {
   if (err) { console.log(err); }
   console.log(JSON.stringify(status, null, 2));
   process.exit(0);

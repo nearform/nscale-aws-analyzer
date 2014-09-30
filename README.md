@@ -52,66 +52,8 @@ The `config.js` file is the very same of [aws-sdk](http://npm.im/aws-sdk).
 
 For embedded usage see analyze.js file.
 
-```js
-var fs          = require('fs')
-  , configFile  = process.argv[2]
-  , analyze     = require('./')
-  , AWS         = require('aws-sdk')
-  , config
+## License
 
-if (!configFile) {
-  console.log('Missing config')
-  process.exit(-1)
-}
+Copyright (c) 2014 Nearform and other contributors
 
-try {
-  AWS.config.loadFromPath(configFile)
-} catch(err) {
-  console.log(err)
-  console.log('unable to read', configFile)
-  process.exit(-1)
-}
-
-analyze(function(err, status) {
-  if (err) {
-    console.log(err)
-    process.exit(1)
-  }
-
-  console.log(JSON.stringify(status, null, 2))
-})
-```
-
-Naming System
--------------
-
-### AWS
-
-Each AMI and instance _must_ be tagged with:
-* `nfd-id`: the id on NFD
-* `nfd-namespace`: the namespace on NFD
-
-Non-tagged AMI will be added with `notManaged: true` in their `specific`
-property.
-
-### Docker
-
-Each container _must_ have the name in this pattern:
-`nfd-<namespace>-<id>`.
-
-Each image _must_ be tagged with this pattern:
-`nfd:<namespace>-<id>`.
-
-TODO
-----
-
-* [x] Link to the container definition inside the container
-* [x] add unit tests
-* [x] add docker support
-* [x] add ELB support
-* [x] add contains and containedBy relations for docker containers
-* [ ] add type in containerDefinitions
-* [ ] add ELB containerDefinition
-* [ ] allow parallelization of tasks.
-* [ ] limit the search to only 1 namespace (for speed)
-* [ ] generate a new spec when ids are missing
+Licensed under the Artistic License 2.0

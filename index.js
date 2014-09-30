@@ -44,13 +44,15 @@ var AWS = require('aws-sdk');
  *  "instanceFilter":     the tag key to filter instances on (typically nfd-id)
  *
  *  ??"dockerRemote": "8000"
+ *
+ *  system: the latest system definition
  */
-exports.analyze = function analyze(config, cb) {
+exports.analyze = function analyze(config, system, cb) {
   var result = {'name': config.name,
-                'namespace': config.namespace, 
+                'namespace': config.namespace,
                 'id': config.systemId,
-                'containerDefinitions': [], 
-                'topology': { 'containers': {}}}; 
+                'containerDefinitions': [],
+                'topology': { 'containers': {}}};
 
   AWS.config.update(config);
   AWS.config.update({region: config.region});
