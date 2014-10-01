@@ -30,29 +30,24 @@ var AWS = require('aws-sdk');
 /**
  * run an analysis on an AWS account
  *
- * config:
- *
- * Required:
- *  "accessKeyId":        AWS access key
- *  "secretAccessKey":    AWS secret access key
- *  "region":             AWS region
- *  "user":               common user name for login to aws systems
- *  "identityFile":       AWS pem file
- *  "name":               the system name to use
- *  "namespace":          the system namespace to use
- *  "systemId":           the system id to insert into the generated system definition file
+ * config (required):
+ *  "accessKeyId":        AWS access key (required)
+ *  "secretAccessKey":    AWS secret access key (required)
+ *  "region":             AWS region (required)
+ *  "user":               common user name for login to aws systems (required)
+ *  "identityFile":       AWS pem file (required)
  *
  * Optional:
- *  "instanceFilter":     the tag key to filter instances on (typically nfd-id)
+ *  "instanceFilter":     the tag key to filter instances on
  *
- *  ??"dockerRemote": "8000"
- *
- *  system: the latest system definition
+ *  system (required): the latest system definition, can be null
  */
 exports.analyze = function analyze(config, system, cb) {
-  var result = {'name': config.name || system.name,
-                'namespace': config.namespace || system.namespace,
-                'id': config.systemId || system.systemId,
+  system = system || {};
+
+  var result = {'name': system.name || config.name,
+                'namespace': system.namespace || config.namespace,
+                'id': system.systemId || config.systemId,
                 'containerDefinitions': [],
                 'topology': { 'containers': {}}};
 
