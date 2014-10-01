@@ -23,12 +23,7 @@ describe('ec2 instances analysis', function() {
     constructorStub.restore();
   });
 
-  it('must fetch two containers', function(done) {
-    done();
-  });
-
-  /*
-  it('must fetch two containers', function() {
+  it.skip('must fetch two containers', function() {
     var expected = {
       'namespace': 'mcollina',
       'containerDefinitions': [],
@@ -81,6 +76,5 @@ describe('ec2 instances analysis', function() {
       expect(result).to.eql(expected);
     });
   });
-  */
 });
 

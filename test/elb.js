@@ -71,7 +71,7 @@ describe('ec2 instances analysis', function() {
       }
     };
 
-    fetchImages(AWS, {}, result, function(err) {
+    fetchImages({}, result, function(err) {
       expect(err).to.be.falsy();
       delete result.id;
       delete result.name;
@@ -136,7 +136,7 @@ describe('ec2 instances analysis', function() {
       }
     };
 
-    fetchImages(AWS, {}, result, function(err) {
+    fetchImages({}, result, function(err) {
       expect(err).to.be.falsy();
       delete result.id;
       delete result.name;
