@@ -50,9 +50,9 @@ var AWS = require('aws-sdk');
  *  system: the latest system definition
  */
 exports.analyze = function analyze(config, system, cb) {
-  var result = {'name': config.name,
-                'namespace': config.namespace,
-                'id': config.systemId,
+  var result = {'name': config.name || system.name,
+                'namespace': config.namespace || system.namespace,
+                'id': config.systemId || system.systemId,
                 'containerDefinitions': [],
                 'topology': { 'containers': {}}};
 
