@@ -71,7 +71,7 @@ exports.analyze = function analyze(config, system, cb) {
     fetchLoadBalancers,
     postProcessing
   ], function(func, cb) {
-    func(AWS, config, result, function(err) {
+    func(config, result, function(err) {
       if (err) { return cb(err); }
       cb(null);
     });
