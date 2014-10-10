@@ -54,14 +54,13 @@ exports.analyze = function analyze(config, system, cb) {
   AWS.config.update(config);
   AWS.config.update({region: config.region});
 
-  var docker = dockerAnalyzer(dockerApi);
+  var docker = dockerAnalyzer(dockerApi, system);
 
   async.eachSeries([
     fetchInstances,
     fetchImages,
     fetchSgs,
-    docker.fetchImages,
-    docker.fetchContainers,
+    docker,
     stripExtraneous,
     fetchLoadBalancers,
     postProcessing
