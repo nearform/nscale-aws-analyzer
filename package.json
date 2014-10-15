@@ -34,7 +34,7 @@
     "aws-sdk": "^2.0.0-rc.19",
     "debug": "^1.0.1",
     "lodash": "^2.4.1",
-    "nscale-docker-analyzer": "^0.3.1",
+    "nscale-docker-analyzer": "git://github.com/nearform/nscale-docker-analyzer.git#matching-step",
     "underscore": "^1.6.0",
     "uuid": "^1.4.1"
   },
