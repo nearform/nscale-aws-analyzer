@@ -1,6 +1,6 @@
 {
   "name": "nscale-aws-analyzer",
-  "version": "0.3.2",
+  "version": "0.4.0",
   "description": "Analyze your AWS deployment!",
   "main": "index.js",
   "bin": {
