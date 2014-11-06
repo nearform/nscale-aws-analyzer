@@ -55,6 +55,7 @@ exports.analyze = function analyze(config, system, cb) {
   AWS.config.update({region: config.region});
 
   var docker = dockerAnalyzer(dockerApi, system);
+  var match = require('./lib/match')(system);
 
   async.eachSeries([
     fetchInstances,
@@ -63,7 +64,8 @@ exports.analyze = function analyze(config, system, cb) {
     docker,
     stripExtraneous,
     fetchLoadBalancers,
-    postProcessing
+    postProcessing,
+    match
   ], function(func, cb) {
     func(config, result, function(err) {
       if (err) { return cb(err); }
