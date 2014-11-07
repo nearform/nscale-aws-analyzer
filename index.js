@@ -59,7 +59,7 @@ exports.analyze = function analyze(config, system, cb) {
     fetchInstances,
     fetchImages,
     fetchSgs,
-    dockerAnalyzer(config),
+    dockerAnalyzer(system),
     stripExtraneous,
     fetchLoadBalancers,
     postProcessing,
