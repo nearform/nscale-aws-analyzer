@@ -48,7 +48,10 @@ exports.analyze = function analyze(config, system, cb) {
                 'namespace': system.namespace || config.namespace,
                 'id': system.systemId || config.systemId,
                 'containerDefinitions': [],
-                'topology': { 'containers': {}}};
+                'topology': { 
+                  'containers': {},
+                  'name': system.topology.name
+                }};
 
   AWS.config.update(config);
   AWS.config.update({region: config.region});
@@ -61,7 +64,7 @@ exports.analyze = function analyze(config, system, cb) {
     fetchSgs,
     dockerAnalyzer(config, system),
     stripExtraneous,
-    fetchLoadBalancers,
+//    fetchLoadBalancers,
     postProcessing,
     match
   ], function(func, cb) {
