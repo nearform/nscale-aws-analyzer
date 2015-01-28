@@ -1,0 +1,11 @@
+{
+  "systemId": "4624e815-f814-4802-89b4-e33340a6af46",
+  "namespace": "nsd",
+  "name": "nsd-test",
+  "accessKeyId": "aws-key-id",
+  "secretAccessKey": "aws-access-key",
+  "region": "aws-region",
+  "user": "awsuser",
+  "identityFile": "path/to/pem/file",
+  "instanceFilter": "filter"
+}
