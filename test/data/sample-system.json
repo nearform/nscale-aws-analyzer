@@ -1,0 +1,9 @@
+{
+  "systemId": "eef0a0a0-eff5-11e3-aeca-21cba7b24b1c",
+  "namespace": "nscale-sample",
+  "name": "sample",
+  "topology": {
+    "name": "sample-topology",
+    "containers": {}
+  }
+}
