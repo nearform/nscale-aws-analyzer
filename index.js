@@ -27,13 +27,13 @@ var fetchLoadBalancers = require('./lib/elb');
 var postProcessing = require('./lib/postProcessing');
 var match = require('./lib/match');
 
-exports.analyze = function analyze(config, system, cb) {
+exports.analyze = function analyze(config, system, callback) {
   system = system || {
     topology: {}
   };
 
   createBaseResult(config, system, function(err, result) {
-    if (err) return cb(err, result);
+    if (err) return callback(err, result);
 
     AWS.config.update(config);
 
