@@ -6,6 +6,7 @@ var _ = require('lodash');
 var createBaseResult = require('../lib/createBaseResult.js');
 var sampleConfig = require('./data/sample-config.json');
 var sampleSystem = require('./data/sample-system.json');
+var sampleSystemNoTop = require('./data/sample-notopology.json');
 
 describe('createBaseResult.js:', function() {
   var testConfig;
@@ -30,27 +31,15 @@ describe('createBaseResult.js:', function() {
     });
   });
 
-  it('should not err on missing system with valid config', function() {
+  it('should err on missing system with valid config', function() {
     createBaseResult(testConfig, null, function(err, result) {
-      expect(err).to.be.falsy();
+      expect(err).to.be.truthy();
       expect(result).to.be.truthy();
-    });
-  });
-
-  it('should prefer system fields over config fields', function() {
-    createBaseResult(testConfig, testSystem, function(err, result) {
-      expect(err).to.be.falsy();
-      expect(result).to.be.truthy();
-
-      expect(result.name).to.be.eql(testSystem.name);
-      expect(result.namespace).to.be.eql(testSystem.namespace);
-      expect(result.id).to.be.eql(testSystem.systemId);
-      expect(result.topology.name).to.be.eql(testSystem.topology.name);
     });
   });
 
   it('should have a null topology.name if none was found in system', function() {
-    createBaseResult(testConfig, null, function(err, result) {
+    createBaseResult(null, sampleSystemNoTop, function(err, result) {
       expect(err).to.be.falsy();
       expect(result).to.be.truthy();
       expect(result.topology.name).to.be.eql(null);
@@ -77,7 +66,7 @@ describe('createBaseResult.js:', function() {
 
   it('should err if missing systemId in both system and config', function() {
     delete testConfig.systemId;
-    delete testSystem.systemId;
+    delete testSystem.id;
 
     createBaseResult(testConfig, testSystem, function(err, result) {
       expect(err).to.be.truthy();

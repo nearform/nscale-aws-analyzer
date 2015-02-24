@@ -3,7 +3,6 @@
   "namespace": "nscale-sample",
   "name": "sample",
   "topology": {
-    "name": "sample-topology",
     "containers": {}
   }
 }
