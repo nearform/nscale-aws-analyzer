@@ -4,80 +4,69 @@ var expect = require('must');
 var _ = require('lodash');
 
 var createBaseResult = require('../lib/createBaseResult.js');
-var sampleConfig = require('./data/sample-config.json');
 var sampleSystem = require('./data/sample-system.json');
 var sampleSystemNoTop = require('./data/sample-notopology.json');
 
 describe('createBaseResult.js:', function() {
-  var testConfig;
   var testSystem;
 
   beforeEach(function() {
-    testConfig = _.cloneDeep(sampleConfig);
     testSystem = _.cloneDeep(sampleSystem);
   });
 
-  it('should err on missing both system and config', function() {
-    createBaseResult(null, null, function(err) {
+  it('should err on missing system', function(done) {
+    createBaseResult(null, function(err, result) {
       expect(err).to.be.truthy();
+      expect(result).to.be.falsy();
+      done();
     });
   });
 
 
-  it('should not err on missing config with valid system', function() {
-    createBaseResult(null, testSystem, function(err, result) {
+  it('should not err on valid system', function(done) {
+    createBaseResult(testSystem, function(err, result) {
       expect(err).to.be.falsy();
       expect(result).to.be.truthy();
+      done();
     });
   });
 
-  it('should err on missing system with valid config', function() {
-    createBaseResult(testConfig, null, function(err, result) {
-      expect(err).to.be.truthy();
-      expect(result).to.be.truthy();
-    });
-  });
-
-  it('should have a null topology.name if none was found in system', function() {
-    createBaseResult(null, sampleSystemNoTop, function(err, result) {
+  it('should have a null topology.name if none was found in system', function(done) {
+    createBaseResult(sampleSystemNoTop, function(err, result) {
       expect(err).to.be.falsy();
       expect(result).to.be.truthy();
       expect(result.topology.name).to.be.eql(null);
+      done();
     });
   });
 
-  it('should err if missing name in both system and config', function() {
-    delete testConfig.name;
+  it('should err if missing name in system', function(done) {
     delete testSystem.name;
 
-    createBaseResult(testConfig, testSystem, function(err, result) {
+    createBaseResult(testSystem, function(err, result) {
       expect(err).to.be.truthy();
+      expect(result).to.be.falsy();
+      done();
     });
   });
 
-  it('should err if missing namespace in both system and config', function() {
-    delete testConfig.namespace;
+  it('should err if missing namespace in system', function(done) {
     delete testSystem.namespace;
 
-    createBaseResult(testConfig, testSystem, function(err, result) {
+    createBaseResult(testSystem, function(err, result) {
       expect(err).to.be.truthy();
+      expect(result).to.be.falsy();
+      done();
     });
   });
 
-  it('should err if missing systemId in both system and config', function() {
-    delete testConfig.systemId;
+  it('should err if missing systemId in system', function(done) {
     delete testSystem.id;
 
-    createBaseResult(testConfig, testSystem, function(err, result) {
+    createBaseResult(testSystem, function(err, result) {
       expect(err).to.be.truthy();
-    });
-  });
-
-  it('modifications to system should not leak', function() {
-    var system = null;
-
-    createBaseResult(testConfig, system, function(err, result) {
-      expect(system).to.be.null();
+      expect(result).to.be.falsy();
+      done();
     });
   });
 });

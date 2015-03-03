@@ -15,24 +15,19 @@
 
 'use strict';
 
-
-
 var fs = require('fs');
 var configFile = process.argv[2];
-var analyze = require('./');
-var AWS = require('aws-sdk');
-var config;
+var analyzer = require('./');
 
 if (!configFile) {
   console.log('Missing config');
   process.exit(-1);
 }
 
-AWS.config.loadFromPath(configFile);
-config = JSON.parse(fs.readFileSync(configFile, 'utf8'));
+var config = JSON.parse(fs.readFileSync(configFile, 'utf8'));
 
 console.log('Analyzing...');
-analyze.analyze(config, null, function(err, status) {
+analyzer.analyze(config, null, function(err, status) {
   if (err) {
     console.log(err);
     process.exit(1);
@@ -40,4 +35,3 @@ analyze.analyze(config, null, function(err, status) {
   console.log(JSON.stringify(status, null, 2));
   process.exit(0);
 });
-
