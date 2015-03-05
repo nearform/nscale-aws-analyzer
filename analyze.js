@@ -21,13 +21,11 @@ var analyzer = require('./');
 var configPath = process.argv[2];
 var systemPath = process.argv[3];
 
-console.log(configPath + systemPath);
-
 try {
   var config = require(configPath);
   var system = require(systemPath);
 } catch(err) {
-  console.log('both system and config paths required');
+  console.log('both system [2] and config [3] paths required');
   return process.exit(-1);
 }
 
