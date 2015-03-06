@@ -15,7 +15,6 @@
 'use strict';
 
 var async = require('async');
-var AWS = require('aws-sdk');
 
 var createBaseResult = require('./lib/createBaseResult.js');
 var fetchInstances = require('./lib/ec2-instances');
@@ -32,14 +31,8 @@ var allowedTypes = [
 ];
 
 exports.analyze = function analyze(config, system, callback) {
-  system = system || {
-    topology: {}
-  };
-
-  createBaseResult(config, system, function(err, result) {
-    if (err) return callback(err, result);
-
-    AWS.config.update(config);
+  createBaseResult(system, function(err, result) {
+    if (err) { return callback(err, result) };
 
     var onNext = function(func, done) {
       func(config, result, done);

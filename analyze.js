@@ -15,29 +15,27 @@
 
 'use strict';
 
-
-
 var fs = require('fs');
-var configFile = process.argv[2];
-var analyze = require('./');
-var AWS = require('aws-sdk');
-var config;
+var analyzer = require('./');
 
-if (!configFile) {
-  console.log('Missing config');
-  process.exit(-1);
+var configPath = process.argv[2];
+var systemPath = process.argv[3];
+
+try {
+  var config = require(configPath);
+  var system = require(systemPath);
+} catch(err) {
+  console.log('both system [2] and config [3] paths required');
+  return process.exit(-1);
 }
 
-AWS.config.loadFromPath(configFile);
-config = JSON.parse(fs.readFileSync(configFile, 'utf8'));
-
 console.log('Analyzing...');
-analyze.analyze(config, null, function(err, status) {
+analyzer.analyze(config, system, function(err, result) {
   if (err) {
     console.log(err);
     process.exit(1);
   }
-  console.log(JSON.stringify(status, null, 2));
+
+  console.log(JSON.stringify(result, null, 2));
   process.exit(0);
 });
-
