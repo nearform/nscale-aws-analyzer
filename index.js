@@ -15,6 +15,8 @@
 'use strict';
 
 var async = require('async');
+var path = require('path');
+var fs = require('fs');
 
 var createBaseResult = require('./lib/createBaseResult.js');
 var fetchInstances = require('./lib/ec2-instances');
@@ -31,6 +33,16 @@ var allowedTypes = [
 ];
 
 exports.analyze = function analyze(config, system, callback) {
+  if (!config.identityFile) {
+    return callback(new Error('missing identityFile'));
+  }
+
+  config.identityFile = path.resolve(system.repoPath, config.identityFile);
+
+  if (!fs.existsSync(config.identityFile)) {
+    return callback(new Error('identityFile not accessible: ' + config.identityFile));
+  }
+
   createBaseResult(system, function(err, result) {
     if (err) { return callback(err, result) };
 
