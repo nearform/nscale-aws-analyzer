@@ -63,7 +63,7 @@ exports.analyze = function analyze(config, system, callback) {
       dockerAnalyzer(config, system),
       stripExtraneous,
       fetchLoadBalancers,
-      postProcessing,
+      postProcessing(system),
       match(system)
     ];
 
