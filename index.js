@@ -22,6 +22,7 @@ var createBaseResult = require('./lib/createBaseResult.js');
 var fetchInstances = require('./lib/ec2-instances');
 var fetchImages = require('./lib/ec2-amis');
 var fetchSecurityGroups = require('./lib/ec2-sgs');
+var fetchAutoScalingGroups = require('./lib/ec2-autoscaling-groups');
 var dockerAnalyzer = require('nscale-docker-ssh-analyzer');
 var stripExtraneous = require('./lib/stripExtraneous');
 var fetchLoadBalancers = require('./lib/elb');
@@ -44,7 +45,7 @@ exports.analyze = function analyze(config, system, callback) {
   }
 
   createBaseResult(system, function(err, result) {
-    if (err) { return callback(err, result) };
+    if (err) { return callback(err, result); }
 
     var onNext = function(func, done) {
       func(config, result, done);
@@ -58,10 +59,11 @@ exports.analyze = function analyze(config, system, callback) {
       fetchInstances,
       fetchImages,
       fetchSecurityGroups,
-      dockerAnalyzer(config, system),
+      fetchAutoScalingGroups,
       stripExtraneous,
       fetchLoadBalancers,
-      postProcessing,
+      postProcessing(system),
+      dockerAnalyzer(config, system),
       match(system)
     ];
 
