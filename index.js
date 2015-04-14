@@ -59,9 +59,9 @@ exports.analyze = function analyze(config, system, callback) {
       fetchInstances,
       fetchImages,
       fetchSecurityGroups,
+      fetchLoadBalancers,
       fetchAutoScalingGroups,
       stripExtraneous,
-      fetchLoadBalancers,
       postProcessing(system),
       dockerAnalyzer(config, system),
       match(system)
