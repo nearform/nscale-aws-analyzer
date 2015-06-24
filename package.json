@@ -1,6 +1,6 @@
 {
   "name": "nscale-aws-analyzer",
-  "version": "0.17.1",
+  "version": "0.17.2",
   "description": "Analyze your AWS deployment!",
   "main": "index.js",
   "bin": {
@@ -36,7 +36,7 @@
     "debug": "^1.0.1",
     "lodash": "^2.4.1",
     "traverse": "^0.6.6",
-    "nscale-docker-ssh-analyzer": "~0.17.1",
+    "nscale-docker-ssh-analyzer": "~0.17.2",
     "uuid": "^1.4.1"
   },
   "devDependencies": {
